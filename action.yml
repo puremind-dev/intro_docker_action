@@ -1,0 +1,17 @@
+name: "intro into github docker action"
+description: "get args and concatenate these"
+inputs:
+  name: 
+    description: "user name"
+  surname:
+    description: "user surname"
+outputs:
+  full_name:
+    description: "name and surname"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:    
+    #pass args to docker container
+    - ${{inputs.name}}
+    - ${{inputs.surname}}
