@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  intro_job:
+    runs-on: ubuntu-latest
+    name: job for create full name
+
+    steps:
+      - name: create full name
+        id: cfn
+        uses: puremind-dev/intro_docker_action@v1
+        with:
+          name: 'Software'
+          surname: 'Engineer'
+
+      - name: print full name
+        run: echo "Hello ${{steps.cfn.outputs.full_name}}"
